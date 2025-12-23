@@ -1186,7 +1186,7 @@ watch -n 10 ./monitor.sh
 <details>
 <summary>คำตอบ</summary>
 
- เขียนคำตอบลงในช่องนี้
+ ในระบบ GitHub Actions เมื่อใช้ Self-hosted Runner ตัวโปรแกรมที่รันในเครื่องเราจะใช้วิธี "ดึง" (Pull) งานจาก GitHub มาทำเอง แทนที่ GitHub จะ "ส่ง" (Push) งานมาที่เครื่อง
 
 
 </details>
@@ -1196,7 +1196,7 @@ watch -n 10 ./monitor.sh
 <details>
 <summary>คำตอบ</summary>
 
- เขียนคำตอบลงในช่องนี้
+ ความปลอดภัยอยู่ที่การจัดการ Firewall และ Attack Surface
 
 
 </details>
@@ -1206,7 +1206,10 @@ watch -n 10 ./monitor.sh
 <details>
 <summary>คำตอบ</summary>
 
- เขียนคำตอบลงในช่องนี้
+ ทำไฟล์ deploy.yml ใน CI/CD คุณควรเปลี่ยนจาก npm install มาเป็น npm ci เพราะ
+Deterministic: มันจะติดตั้ง Version ของ Library ตามที่ระบุไว้ในไฟล์ package-lock.json แบบเป๊ะๆ ทำให้มั่นใจได้ว่าสิ่งที่รันบนเครื่องเรากับสิ่งที่รันบน Production คือตัวเดียวกัน
+Clean: มันจะลบโฟลเดอร์ node_modules ทิ้งแล้วลงใหม่ทั้งหมดเสมอ ป้องกันปัญหาไฟล์เก่าค้าง
+Speed: ในโปรเจกต์ขนาดใหญ่ npm ci มักจะทำงานเร็วกว่าเพราะไม่ต้องคำนวณหา Version ของ Library ใหม่
 
 
 </details>
@@ -1216,7 +1219,9 @@ watch -n 10 ./monitor.sh
 <details>
 <summary>คำตอบ</summary>
 
- เขียนคำตอบลงในช่องนี้
+อันตรายมากกกกก เพราะใครก็ได้ในโลกสามารถส่ง "Pull Request" (PR) ที่แฝง Code อันตรายมายัง Repo ของเราได้
+ถ้า GitHub Actions รัน Code นั้นบนเครื่อง Self-hosted ของเรา Hacker จะสามารถสั่งให้เครื่องเรารันคำสั่งอะไรก็ได้ (เช่น ขโมยข้อมูลในเครื่อง, สั่งลบไฟล์, หรือใช้เครื่องคุณเป็นฐานโจมตีคนอื่น)
+ใช้ Self-hosted Runner กับ Private Repository เท่านั้น
 
 
 </details>
@@ -1226,7 +1231,11 @@ watch -n 10 ./monitor.sh
 <details>
 <summary>คำตอบ</summary>
 
- เขียนคำตอบลงในช่องนี้
+Nginx คือ Web Server ประสิทธิภาพสูงที่นิยมนำมาทำเป็น Reverse Proxy
+ความสำคัญ:
+Security: ซ่อนพอร์ตจริงของ Node.js ไว้ไม่ให้คนภายนอกเห็น
+SSL/TLS: ให้ Nginx จัดการเรื่อง HTTPS แทนที่จะเขียน Code ใน Node.js เอง
+Load Balancing: สามารถรับงานมาแล้วกระจายไปให้ Node.js หลายๆ เครื่องรันพร้อมกันได้
 
 
 </details>
