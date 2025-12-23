@@ -961,7 +961,8 @@ tail -f ~/actions-runner/_diag/Runner_*.log
 
   ### บันทึกรูปผลการทดลอง
   ```
-  บันทึกรูปหน้า Runners โดยคัดลอกให้เห็น Account ของ GitHub และ Repository
+  <img width="1919" height="916" alt="image" src="https://github.com/user-attachments/assets/abb3d531-b06c-4170-a370-df19e10ae2c8" />
+
   ```
 
 
